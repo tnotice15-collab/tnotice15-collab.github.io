@@ -1,21 +1,39 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: white;
-  margin: 0;
-  padding: 0;
+/* ===== Simple, modern styling ===== */
+:root{
+  --bg1:#0f172a;        /* dark navy */
+  --bg2:#111827;        /* deep gray */
+  --card:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.12);
+  --text:#f8fafc;
+  --muted:#cbd5e1;
+  --accent:#7dd3fc;     /* light blue */
+  --accent2:#fbbf24;    /* gold */
 }
 
-header, main, footer {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 20% 10%, rgba(125,211,252,0.25), transparent 55%),
+    radial-gradient(900px 500px at 80% 20%, rgba(251,191,36,0.18), transparent 55%),
+    linear-gradient(160deg, var(--bg1), var(--bg2));
 }
 
-header {
-  border-bottom: 1px solid #333;
+header{
+  max-width: 920px;
+  margin: 26px auto 14px;
+  padding: 18px 18px 10px;
+  display:flex;
+  align-items:center;
+  gap:14px;
 }
 
-a {
-  color: #8fd3ff;
-}
+header img{
+  width:72px;
+  height:72px;
+  border-radius:16px;
+  object-fit:cover;
+  border:1px solid
