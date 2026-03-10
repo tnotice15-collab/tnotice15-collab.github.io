@@ -1,39 +1,213 @@
-/* ===== Simple, modern styling ===== */
-:root{
-  --bg1:#0f172a;        /* dark navy */
-  --bg2:#111827;        /* deep gray */
-  --card:rgba(255,255,255,0.08);
-  --border:rgba(255,255,255,0.12);
-  --text:#f8fafc;
-  --muted:#cbd5e1;
-  --accent:#7dd3fc;     /* light blue */
-  --accent2:#fbbf24;    /* gold */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-*{ box-sizing:border-box; }
-
-body{
-  margin:0;
-  font-family: Arial, Helvetica, sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(1200px 600px at 20% 10%, rgba(125,211,252,0.25), transparent 55%),
-    radial-gradient(900px 500px at 80% 20%, rgba(251,191,36,0.18), transparent 55%),
-    linear-gradient(160deg, var(--bg1), var(--bg2));
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  line-height: 1.6;
 }
 
-header{
-  max-width: 920px;
-  margin: 26px auto 14px;
-  padding: 18px 18px 10px;
-  display:flex;
-  align-items:center;
-  gap:14px;
+html {
+  scroll-behavior: smooth;
 }
 
-header img{
-  width:72px;
-  height:72px;
-  border-radius:16px;
-  object-fit:cover;
-  border:1px solid
+/* Navbar */
+.navbar {
+  background: #1a1a1a;
+  border-bottom: 2px solid #cc0000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff3b3b;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Hamburger icon */
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Main nav */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  display: block;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover / rollover effect */
+.nav-menu a:hover {
+  background-color: #cc0000;
+  color: #fff;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222;
+  min-width: 180px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Hero */
+.hero {
+  min-height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+              url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ff4d4d;
+}
+
+.hero-text p {
+  max-width: 700px;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.btn {
+  background-color: #cc0000;
+  color: white;
+  text-decoration: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff1a1a;
+}
+
+/* Sections */
+.section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section h2 {
+  color: #ff4d4d;
+  margin-bottom: 1rem;
+}
+
+.card {
+  background: #1c1c1c;
+  border-left: 4px solid #cc0000;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #1a1a1a;
+  border-top: 2px solid #cc0000;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #1a1a1a;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 1rem 0;
+  }
+
+  #menu-toggle:checked + .menu-icon + .nav-menu {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    border: none;
+    box-shadow: none;
+    background: #2a2a2a;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+}
